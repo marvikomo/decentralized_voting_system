@@ -9,8 +9,20 @@ contract Election {
        uint voteCount;
 
    }
+
+   mapping(uint => Candidate) public candidates;
+
+   uint public candidatesCount;
     constructor () public {
+
+        addCandidate("Buhari");
+        addCandidate("Atiku");
       
+    }
+
+    function addCandidate(string memory _name) private {
+        candidatesCount++;
+        candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
     }
 
 }
